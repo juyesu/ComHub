@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "@/components/layout";
-import NaverShowpingApi from '@/components/NaverShowpingApi'
+import MainPage from '@/components/MainPage'
 
 const Home = () => {
   return (
     <Layout>
-      <NaverShowpingApi />
+      <MainPage />
     </Layout>
   );
 };
