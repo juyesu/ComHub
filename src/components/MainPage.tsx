@@ -1,6 +1,6 @@
-const NaverShowpingApi = () => {  
+const MainPage = () => {  
     return <>
-      <div className="h-80 px-8 py-16 bg-slate-400">
+      <div className="h-80 px-8 lg:px-96 py-16 bg-slate-400">
         <div className="w-1/2">
           <h1 className="mb-4 font-bold text-2xl text-white">AI 컴퓨터 사양 추천</h1>
           <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt debitis aspernatur nostrum eos magnam adipisci culpa saepe laudantium tempora, asperiores soluta porro dignissimos</p>
@@ -10,4 +10,4 @@ const NaverShowpingApi = () => {
     </>;
 };
 
-export default NaverShowpingApi;
+export default MainPage;
