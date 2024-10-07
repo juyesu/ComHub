@@ -1,4 +1,5 @@
 import type { ChildrenComponentsProps } from "@/types/type";
+import Link from 'next/link'
 
 const RootLayout = ({ children }: ChildrenComponentsProps) => {
   return <>
@@ -8,7 +9,7 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
         <nav>
           <ul className="flex gap-8">
             <li>Home</li>
-            <li>Menu</li>
+            <li><Link href='/Menu'>Menu</Link></li>
             <li>About</li>
           </ul>
         </nav>
