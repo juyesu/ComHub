@@ -11,7 +11,9 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
           </h1>
           <nav>
             <ul className="flex gap-8">
-              <li>Home</li>
+              <li>
+              <Link href=".">Home</Link>
+              </li>
               <li>Menu</li>
               <li>
                 <Link href="/about">About</Link>
