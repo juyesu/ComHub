@@ -12,3 +12,37 @@
 body {
   font-family: 'Pretendard', sans-serif;
 }
+
+.range-slider {
+  appearance: none;
+  width: 50%;
+  height: 10px;
+  border-radius: 9999px;
+  background: #6666;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+}
+
+.range-slider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value), #e5e7eb var(--value), #e5e7eb 100%);
+}
+
+.range-slider::-moz-range-track {
+  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value), #e5e7eb var(--value), #e5e7eb 100%);
+}
