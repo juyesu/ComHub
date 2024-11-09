@@ -5,7 +5,7 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
   return (
     <>
       <header>
-        <div className="flex justify-between items-center py-8 px-8 2xl:px-[32rem] h-16 border">
+        <div className="flex justify-between items-center py-8 md:px-32 2xl:px-96 min-[1800px]:px-[32rem] h-16 border">
           <h1>
             <Link href=".">logo</Link>
           </h1>

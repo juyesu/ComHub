@@ -5,20 +5,8 @@ const minPrice = 400000
 const maxPrice = 2000000
 
 const PcSpecsRecommendation = () => {
-  const [price, setPrice] = useState(1200000)
-
-  const formatPrice = (value: number) => {
-    return (value / 10000).toLocaleString() + '만원'
-  };
-
-  const handlePriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPrice(Number(event.target.value));
-  };
-
-  const priceRatio = ((price - minPrice) / (maxPrice - minPrice)) * 100
-
   return (
-    <div className="h-full p-8 lg:mx-[30rem] bg-gray-100">
+    <div className="h-full p-8 md:px-28 2xl:px-96 min-[1800px]:px-[32rem] bg-gray-100">
       <h1 className="mt-8 font-bold text-3xl text-gray-600">AI 컴퓨터 사양추천</h1>
       <hr className="my-6 border-solid border border-gray-600" />
       <ol className="mt-16 mb-24 mx-4">
@@ -63,23 +51,13 @@ const PcSpecsRecommendation = () => {
         <li className="my-12">
           <p className="mt-4 text-lg">4. 희망하는 가격대는 얼마인가요?</p>
           <p className="mb-4 ml-1 text-sm text-rose-500">* 희망 사양 수준과 가격대가 일치하지 않을 경우 추천 결과에 오차가 발생할 수 있습니다.</p>
-          <div className="flex justify-between mb-2 w-1/2">
-            <span className="text-gray-600">40만원</span>
-            <span id="priceOutput" className="text-gray-800 font-semibold">120만원</span>
-            <span className="text-gray-600">200만원</span>
-          </div>
-
+          <div className="flex items-center">
           <input
-            type="range"
-            min="400000"
-            max="2000000"
-            value={price}
-            onChange={handlePriceChange}
-            className="range-slider"
-            style={{
-              '--value': `${priceRatio}%`
-            } as React.CSSProperties}
+            type="text"
+            className="p-1 w-16 text-center border"
           />
+          <p className="ml-2">만원</p>
+          </div>
         </li>
 
         <li className="my-12">
