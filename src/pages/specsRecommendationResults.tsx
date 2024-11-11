@@ -1,31 +1,31 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 
 type SpecsClassType = {
-  유형: string;
-  제품명: string;
-  제조사: string;
-  가격: number;
-};
+  유형: string
+  제품명: string
+  제조사: string
+  가격: number
+}
 
 const SpecsRecommendationResults = () => {
-  const router = useRouter();
-  const { purpose, storage, cost } = router.query;
-  const [responseData, setResponseData] = useState();
-  const [loading, setLoading] = useState(false);
+  const router = useRouter()
+  const { purpose, storage, cost } = router.query
+  const [responseData, setResponseData] = useState()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (responseData) {
-      console.log("변수에 저장된 값은 ", JSON.parse(responseData));
+      console.log("변수에 저장된 값은 ", JSON.parse(responseData))
     } else {
-      console.log("responseData가 undefined입니다.");
+      console.log("responseData가 undefined입니다.")
     }
-  }, [responseData]);
+  }, [responseData])
 
   const fetchChatGPTResponse = async () => {
-    setLoading(true);
+    setLoading(true)
     try {
-      const apiKey = "";
+      const apiKey = ""
 
       const response = await fetch(
         "https://api.openai.com/v1/chat/completions",
@@ -45,68 +45,79 @@ const SpecsRecommendationResults = () => {
             ],
           }),
         }
-      );
+      )
 
       if (!response.ok) {
-        console.error(`Error: ${response.status} ${response.statusText}`);
-        throw new Error("API request failed");
+        console.error(`Error: ${response.status} ${response.statusText}`)
+        throw new Error("API request failed")
       }
 
-      const data = await response.json();
-      console.log(data.choices[0]?.message?.content);
-      setResponseData(data.choices[0]?.message?.content || "No response");
+      const data = await response.json()
+      console.log(data.choices[0]?.message?.content)
+      setResponseData(data.choices[0]?.message?.content || "No response")
     } catch (error) {
-      console.error("Error fetching ChatGPT response:", error);
+      console.error("Error fetching ChatGPT response:", error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
-    <div className="flex flex-col p-8 md:px-28 2xl:px-96">
+    <div className="flex flex-col p-8 md:px-28 2xl:px-96 min-[1800px]:px-[32rem]">
       <button
         className="bg-gray-300 py-4 px-10 rounded-full bg-sky-300 hover:bg-sky-500 font-semibold text-white"
         onClick={fetchChatGPTResponse}
         disabled={loading}
       >
-        {loading ? "Loading..." : "추천결과 확인"}
+        {loading ? "결과를 계산중입니다..." : "추천결과 확인"}
       </button>
-      <table className="mt-4 w-full border border-collapse">
-        <thead>
-          <tr>
-            <th scope="col" className="p-3 text-center align-middle bg-sky-500">
-              유형
-            </th>
-            <th scope="col" className="p-2 text-center bg-sky-500">
-              제품명
-            </th>
-            <th scope="col" className="p-2 text-center align-middle bg-sky-500">
-              제조사
-            </th>
-            <th scope="col" className="p-2 text-center align-middle bg-sky-500">
-              가격
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {responseData &&
-            typeof responseData === "string" &&
-            JSON.parse(responseData).map(
-              (item: SpecsClassType, index: number) => (
-                <tr key={index}>
-                  <td className="text-center bg-gray-100 py-3 align-middle">
-                    {item.유형}
-                  </td>
-                  <td className="text-center font-medium">{item.제품명}</td>
-                  <td className="text-center">{item.제조사}</td>
-                  <td className="text-center">{item.가격}</td>
-                </tr>
-              )
-            )}
-        </tbody>
-      </table>
+      {responseData && (
+        <table className="mt-12 w-full border border-collapse">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                className="p-3 text-center align-middle bg-sky-500"
+              >
+                유형
+              </th>
+              <th scope="col" className="p-2 text-center bg-sky-500">
+                제품명
+              </th>
+              <th
+                scope="col"
+                className="p-2 text-center align-middle bg-sky-500"
+              >
+                제조사
+              </th>
+              <th
+                scope="col"
+                className="p-2 text-center align-middle bg-sky-500"
+              >
+                가격
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {responseData &&
+              typeof responseData === "string" &&
+              JSON.parse(responseData).map(
+                (item: SpecsClassType, index: number) => (
+                  <tr key={index}>
+                    <td className="text-center bg-gray-100 py-3 align-middle">
+                      {item.유형}
+                    </td>
+                    <td className="text-center font-medium">{item.제품명}</td>
+                    <td className="text-center">{item.제조사}</td>
+                    <td className="text-center">{item.가격}</td>
+                  </tr>
+                )
+              )}
+          </tbody>
+        </table>
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default SpecsRecommendationResults;
+export default SpecsRecommendationResults
