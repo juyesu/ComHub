@@ -18,6 +18,9 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
               <li>
                 <Link href="/about">About</Link>
               </li>
+              <li>
+                <Link href="/computerParts">ComputerParts</Link>
+              </li>
             </ul>
           </nav>
         </div>
