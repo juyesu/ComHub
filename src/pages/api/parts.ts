@@ -24,9 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const parts = await db.all(`
-      SELECT ID as id, 종류 as type, 제조회사 as manufacturer,
-      이름 as name, about, 가격 as price
-      FROM comhubdb2;
+      SELECT ID as id, kind as type, manufacturing_company as manufacturer,
+      name , about, price
+      FROM comhubdb3;
     `);
 
     res.status(200).json(parts);
