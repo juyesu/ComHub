@@ -28,31 +28,7 @@ const PcSpecsRecommendation = () => {
         <hr className="my-6 border-solid border border-gray-600" />
         <ol className="mt-16 mb-24 mx-4">
           <li className="my-12">
-            <p className="my-4 text-lg">1. 사용자의 성별은 무엇인가요?</p>
-            <input
-              type="radio"
-              id="male"
-              value="male"
-              className="ml-2"
-              {...methods.register("gender")}
-            />
-            <label htmlFor="male" className="mx-2">
-              남성
-            </label>
-            <input
-              type="radio"
-              id="female"
-              value="female"
-              className="ml-2"
-              {...methods.register("gender")}
-            />
-            <label htmlFor="female" className="mx-2">
-              여성
-            </label>
-          </li>
-
-          <li className="my-12">
-            <p className="my-4 text-lg">2. PC의 주된 사용 용도는 무엇인가요?</p>
+            <p className="my-4 text-lg">1. PC의 주된 사용 용도는 무엇인가요?</p>
             <input
               type="checkbox"
               id="game"
@@ -111,7 +87,7 @@ const PcSpecsRecommendation = () => {
 
           <li className="my-12">
             <p className="my-4 text-lg">
-              3. 필요한 저장공간은 어느정도 인가요?
+              2. 필요한 저장공간은 어느정도 인가요?
             </p>
             <input
               type="checkbox"
@@ -166,7 +142,7 @@ const PcSpecsRecommendation = () => {
           </li>
 
           <li className="my-12">
-            <p className="mt-4 text-lg">4. 희망하는 가격대는 얼마인가요?</p>
+            <p className="mt-4 text-lg">3. 희망하는 가격대는 얼마인가요?</p>
             <p className="mb-4 ml-1 text-sm text-rose-500">
               * 희망 사양 수준과 가격대가 일치하지 않을 경우 추천 결과에 오차가
               발생할 수 있습니다.
@@ -178,7 +154,7 @@ const PcSpecsRecommendation = () => {
           </li>
 
           <li className="my-12">
-            <p className="mt-4 text-lg">5. 희망하는 케이스 색상이 있나요?</p>
+            <p className="mt-4 text-lg">4. 희망하는 케이스 색상이 있나요?</p>
             <p className="mb-4 ml-1 text-sm text-rose-500">
               * 블랙또는 화이트 이외의 색상을 선택시 검색 결과가 줄어들 수
               있습니다.
