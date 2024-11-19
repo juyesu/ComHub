@@ -12,8 +12,11 @@ async function openDb() {
   });
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { type, budget } = req.query;
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const { type = "", manufacturer = "" } = req.query;
 
   try {
     const db = await openDb();
@@ -22,10 +25,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       SELECT ID as id, kind as type, manufacturing_company as manufacturer,
       name, about, price
       FROM comhubdb3
-      WHERE kind LIKE ? AND price <= ?;
+      WHERE kind LIKE ? AND manufacturing_company LIKE ?;
     `;
 
-    const filteredParts = await db.all(query, [`%${type}%`, budget]);
+    console.log("Executing query with parameters:", { type, manufacturer });
+
+    const filteredParts = await db.all(query, [
+      `%${type}%`,
+      `%${manufacturer}%`,
+    ]);
+
+    console.log("Filtered parts result:", filteredParts);
+
     res.status(200).json(filteredParts);
   } catch (error) {
     console.error("Error fetching filtered data:", error);
