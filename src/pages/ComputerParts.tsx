@@ -10,7 +10,7 @@ interface Part {
   price: string;
 }
 
-const computerParts = () => {
+const ComputerParts = () => {
   const [parts, setParts] = useState<Part[]>([]);
 
   useEffect(() => {
@@ -27,9 +27,9 @@ const computerParts = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 min-h-screen md:px-28 2xl:px-96 min-[1800px]:px-[32rem">
       <h1 className="text-3xl font-bold text-center mb-8">PC Parts List</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {parts.map((part) => (
           <div
             key={part.id}
@@ -55,4 +55,4 @@ const computerParts = () => {
   );
 };
 
-export default computerParts;
+export default ComputerParts;
