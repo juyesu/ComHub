@@ -21,6 +21,9 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
               <li>
                 <Link href="/computerParts">ComputerParts</Link>
               </li>
+              <li>
+                <Link href="/surveyPage">surveyPage</Link>
+              </li>
             </ul>
           </nav>
         </div>
