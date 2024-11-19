@@ -13,6 +13,7 @@ const SpecsRecommendationResults = () => {
   const { purpose, storage, cost } = router.query;
   const [responseData, setResponseData] = useState();
   const [loading, setLoading] = useState(false);
+  const [viewTable, setViewTable] = useState(false);
 
   useEffect(() => {
     if (responseData) {
@@ -55,6 +56,7 @@ const SpecsRecommendationResults = () => {
       const data = await response.json();
       console.log(data.choices[0]?.message?.content);
       setResponseData(data.choices[0]?.message?.content || "No response");
+      setViewTable(true);
     } catch (error) {
       console.error("Error fetching ChatGPT response:", error);
     } finally {
@@ -71,40 +73,51 @@ const SpecsRecommendationResults = () => {
       >
         {loading ? "Loading..." : "추천결과 확인"}
       </button>
-      <table className="mt-12 w-full border border-collapse">
-        <thead>
-          <tr>
-            <th scope="col" className="p-3 text-center align-middle bg-sky-500">
-              유형
-            </th>
-            <th scope="col" className="p-2 text-center bg-sky-500">
-              제품명
-            </th>
-            <th scope="col" className="p-2 text-center align-middle bg-sky-500">
-              제조사
-            </th>
-            <th scope="col" className="p-2 text-center align-middle bg-sky-500">
-              가격
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {responseData &&
-            typeof responseData === "string" &&
-            JSON.parse(responseData).map(
-              (item: SpecsClassType, index: number) => (
-                <tr key={index}>
-                  <td className="text-center bg-gray-100 py-3 align-middle">
-                    {item.유형}
-                  </td>
-                  <td className="text-center font-medium">{item.제품명}</td>
-                  <td className="text-center">{item.제조사}</td>
-                  <td className="text-center">{item.가격}</td>
-                </tr>
-              )
-            )}
-        </tbody>
-      </table>
+      {viewTable && (
+        <table className="mt-12 w-full border border-collapse">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                className="p-3 text-center align-middle bg-sky-500"
+              >
+                유형
+              </th>
+              <th scope="col" className="p-2 text-center bg-sky-500">
+                제품명
+              </th>
+              <th
+                scope="col"
+                className="p-2 text-center align-middle bg-sky-500"
+              >
+                제조사
+              </th>
+              <th
+                scope="col"
+                className="p-2 text-center align-middle bg-sky-500"
+              >
+                가격
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {responseData &&
+              typeof responseData === "string" &&
+              JSON.parse(responseData).map(
+                (item: SpecsClassType, index: number) => (
+                  <tr key={index}>
+                    <td className="text-center bg-gray-100 py-3 align-middle">
+                      {item.유형}
+                    </td>
+                    <td className="text-center font-medium">{item.제품명}</td>
+                    <td className="text-center">{item.제조사}</td>
+                    <td className="text-center">{item.가격}</td>
+                  </tr>
+                )
+              )}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
