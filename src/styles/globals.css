@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/PretendardVariable.ttf') format('truetype');
+  font-family: "Pretendard";
+  src: url("/fonts/PretendardVariable.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
 
 body {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
 
 .range-slider {
@@ -40,9 +40,37 @@ body {
 }
 
 .range-slider::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value), #e5e7eb var(--value), #e5e7eb 100%);
+  background: linear-gradient(
+    to right,
+    #2563eb 0%,
+    #2563eb var(--value),
+    #e5e7eb var(--value),
+    #e5e7eb 100%
+  );
 }
 
 .range-slider::-moz-range-track {
-  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value), #e5e7eb var(--value), #e5e7eb 100%);
+  background: linear-gradient(
+    to right,
+    #2563eb 0%,
+    #2563eb var(--value),
+    #e5e7eb var(--value),
+    #e5e7eb 100%
+  );
+}
+
+.spinner-border {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border: 0.25em solid currentColor; /* 테마 컬러 기반 */
+  border-top-color: transparent;    /* 위쪽 테두리를 투명하게 설정 */
+  border-radius: 9999px;            /* 완벽한 원 형태 */
+  animation: spin 0.75s linear infinite; /* 회전 애니메이션 */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* 한 바퀴 회전 */
+  }
 }
