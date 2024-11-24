@@ -23,11 +23,11 @@ const PcSpecsRecommendation = () => {
       pathname: "/SpecsRecommendationResults",
       query: data,
     });
-  };
+  }; 
   return (
     <form onSubmit={methods.handleSubmit(onSubmit)}>
       <div className="h-full p-8 md:px-28 2xl:px-96 min-[1800px]:px-[32rem] bg-gray-100">
-        <h1 className="mt-8 font-bold text-3xl text-indigo-700">
+        <h1 className="mt-8 font-bold text-3xl text-black mb-12">
           Pro모드 : AI 컴퓨터 사양추천
         </h1>
         <hr className="my-6 border-solid border border-gray-600" />
@@ -161,7 +161,7 @@ const PcSpecsRecommendation = () => {
               <p className="ml-2">만원</p>
             </div>
           </li>
-
+          
           <li className="my-12">
             <p className="mt-4 text-lg">4. 희망하는 케이스 색상이 있나요?</p>
             <p className="mb-4 ml-1 text-sm text-rose-500">
@@ -595,17 +595,15 @@ const PcSpecsRecommendation = () => {
           </li>
         </ol>
 
-        <div className="flex flex-row">
+        <div className="flex flex-row"> 
           <button
             type="submit"
-            className="mx-4 flex flex-col items-center font-bold bg-sky-400 hover:bg-sky-600 py-3 px-8 rounded text-white text-lg"
+            className="mx-4 flex flex-col items-center font- bg-black mb-12 hover:bg-sky-600 py-3 px-8 rounded text-white text-lg"
           >
             <span className="font-normal text-sm">chat GPT-4 AI기반의</span>
             추천결과 확인하기
           </button>
-          <button className="mx-4 flex flex-col justify-center items-center font-bold bg-gray-300 hover:cursor-no-drop py-3 px-8 rounded text-white text-lg">
-            Pro모드로 업그레이드
-          </button>
+          
         </div>
       </div>
     </form>
