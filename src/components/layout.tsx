@@ -6,9 +6,9 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <header>
-        <div className="flex justify-between items-center py-8 md:px-32 2xl:px-96 min-[1800px]:px-[32rem] h-16 border">
-          <Link href=".">
+      <header className="border-b">
+        <div className="flex justify-between items-center py-8 md:px-32 2xl:px-96 min-[1800px]:px-[32rem] h-16">
+          <Link href="/">
             <Image
               src="/ComhubLogo edit 2.png"
               alt="comhub logo"
@@ -17,20 +17,17 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
             />
           </Link>
           <nav>
-            <ul className="flex gap-8">
+            <ul className="flex gap-8 text-sm font-medium text-gray-700">
               <li>
-                <Link href=".">Home</Link>
+                <Link href="/">Home</Link>
               </li>
-              <li>Menu</li>
               <li>
                 <Link href="/about">About</Link>
               </li>
               <li>
                 <Link href="/ComputerParts">ComputerParts</Link>
               </li>
-              <li>
-                <Link href="/surveyPage">Survey</Link>
-              </li>
+              
             </ul>
           </nav>
         </div>
@@ -39,29 +36,32 @@ const RootLayout = ({ children }: ChildrenComponentsProps) => {
       {/* Main Content */}
       <main className="flex-grow">{children}</main>
 
-      {/* Footer */}
-      <footer className="flex justify-between items-center py-8 md:px-32 2xl:px-96 min-[1800px]:px-[32rem] h-16 border">
-        {/* Left Section */}
-        <p className="text-sm font-bold">
-          © 2024 COMHUB - All Rights Reserved.
-        </p>
+ {/* Footer */}
+<footer className="border-t">
+  <div className="flex flex-col items-center py-8 text-sm space-y-4">
+    {/* 첫 번째 줄 */}
+    <p className="text-gray-500">
+      © 2024 COMHUB - All Rights Reserved.
+    </p>
 
-        {/* Center Section */}
-        <p className="text-sm font-bold">
-          Contact us:{" "}
-          <a
-            href="mailto:comhubyuhan@gmail.com"
-            className="underline hover:text-gray-400"
-          >
-            comhubyuhan@gmail.com
-          </a>
-        </p>
+    {/* 두 번째 줄 */}
+    <p className="text-gray-500">
+      Contact us:{" "}
+      <a
+        href="mailto:comhubyuhan@gmail.com"
+        className="underline hover:text-gray-700"
+      >
+        comhubyuhan@gmail.com
+      </a>
+    </p>
 
-        {/* Right Section */}
-        <p className="text-sm font-bold">
-          Made by: 김호진, 김지혁, 정성문
-        </p>
-      </footer>
+    {/* 세 번째 줄 */}
+    <p className="font-bold text-black">
+      Made by: 김호진, 김지혁, 정성문
+    </p>
+  </div>
+</footer>
+
     </div>
   );
 };
